@@ -144,6 +144,12 @@ void trierTaches() {
             printf("Taches triees par priorite en ordre decroissant.\n");
             break;
             
+            default:
+            printf("Choix invalide.\n");
+            break;
+    }
+}
+
 int main() {
     int choix;
 
