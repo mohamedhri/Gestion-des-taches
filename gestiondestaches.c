@@ -118,7 +118,7 @@ void trierTaches() {
     printf("Votre choix : ");
     scanf("%d", &choix);
 
-     switch (choix) {
+    switch (choix) {
         case 1:
             for (int i = 0; i < nbTaches - 1; i++) {
                 for (int j = 0; j < nbTaches - i - 1; j++) {
@@ -143,8 +143,7 @@ void trierTaches() {
             }
             printf("Taches triees par priorite en ordre decroissant.\n");
             break;
-            
-            default:
+        default:
             printf("Choix invalide.\n");
             break;
     }
@@ -154,13 +153,13 @@ int main() {
     int choix;
 
     while (1) {
-        printf("\nGestionnaire de taches\n");
-        printf("1. Ajouter une tache\n");
-        printf("2. Afficher la liste des taches\n");
-        printf("3. Modifier une tache\n");
-        printf("4. Supprimer une tache\n");
-        printf("5. Trier les taches\n");
-        printf("6. Quitter\n");
+        printf("\nGestionnaire de taches\n ------------------------\n");
+        printf("1. Ajouter une tache\n ------------------------\n");
+        printf("2. Afficher la liste des taches\n ------------------------\n");
+        printf("3. Modifier une tache\n ------------------------\n");
+        printf("4. Supprimer une tache\n ------------------------\n");
+        printf("5. Trier les taches\n ------------------------\n");
+        printf("6. Quitter\n ------------------------\n");
         printf("Votre choix : ");
         scanf("%d", &choix);
 
