@@ -131,6 +131,18 @@ void trierTaches() {
             }
             printf("Taches triees par priorite en ordre croissant.\n");
             break;
+        case 2:
+            for (int i = 0; i < nbTaches - 1; i++) {
+                for (int j = 0; j < nbTaches - i - 1; j++) {
+                    if (taches[j].priorite < taches[j + 1].priorite) {
+                        struct Tache temp = taches[j];
+                        taches[j] = taches[j + 1];
+                        taches[j + 1] = temp;
+                    }
+                }
+            }
+            printf("Taches triees par priorite en ordre decroissant.\n");
+            break;
             
 int main() {
     int choix;
