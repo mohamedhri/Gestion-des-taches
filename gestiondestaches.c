@@ -34,7 +34,23 @@ void ajouterTache() {
 
     printf("Tache ajoutee avec succes.\n");
 }
-void afficherListeTaches() {}
+
+void afficherListeTaches() {
+    if (nbTaches == 0) {
+        printf("La liste des taches est vide.\n");
+        return;
+    }
+
+    printf("Liste des taches :\n");
+    for (int i = 0; i < nbTaches; i++) {
+        struct Tache tache = taches[i];
+        printf("Tache %d :\n", i + 1);
+        printf("Description : %s\n", tache.description);
+        printf("Date d'echeance : %s\n", tache.dateEcheance);
+        printf("Priorite : %d\n", tache.priorite);
+        printf("--------------------\n");
+    }
+}
 
 void modifierTache() {}
 
