@@ -105,8 +105,19 @@ void supprimerTache() {
     printf("Tache supprimee avec succes.\n");
 }
 
-void trierTaches() {}
+void trierTaches() {
+    if (nbTaches == 0) {
+        printf("La liste des taches est vide.\n");
+        return;
+    }
 
+    int choix;
+    printf("Tri des taches :\n");
+    printf("1. Tri croissant par priorite\n");
+    printf("2. Tri decroissant par priorite\n");
+    printf("Votre choix : ");
+    scanf("%d", &choix);
+    
 int main() {
     int choix;
 
