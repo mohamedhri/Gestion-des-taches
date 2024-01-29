@@ -52,7 +52,34 @@ void afficherListeTaches() {
     }
 }
 
-void modifierTache() {}
+void modifierTache() {
+    if (nbTaches == 0) {
+        printf("La liste des taches est vide.\n");
+        return;
+    }
+
+    int indexTache;
+    printf("Entrez le numero de la tache a modifier : ");
+    scanf("%d", &indexTache);
+
+    if (indexTache < 1 || indexTache > nbTaches) {
+        printf("Numero de tache invalide.\n");
+        return;
+    }
+
+    struct Tache *tache = &taches[indexTache - 1];
+
+    printf("Nouvelle description : ");
+    scanf(" %[^\n]", tache->description);
+
+    printf("Nouvelle date d'echeance : ");
+    scanf(" %[^\n]", tache->dateEcheance);
+
+    printf("Nouvelle priorite : ");
+    scanf("%d", &tache->priorite);
+
+    printf("Tache modifiee avec succes.\n");
+}
 
 void supprimerTache() {}
 
