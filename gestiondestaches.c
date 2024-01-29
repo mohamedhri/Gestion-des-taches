@@ -7,13 +7,33 @@
 struct Tache {
     char description[100];
     char dateEcheance[20];
+    int priorite;
 };
 
 struct Tache taches[MAX_TACHES];
 int nbTaches = 0;
 
-void ajouterTache() {}
+void ajouterTache() {
+    if (nbTaches >= MAX_TACHES) {
+        printf("La liste des taches est pleine.\n");
+        return;
+    }
 
+    struct Tache nouvelleTache;
+
+    printf("Description de la tache : ");
+    scanf(" %[^\n]", nouvelleTache.description);
+
+    printf("Date d'echeance : ");
+    scanf(" %[^\n]", nouvelleTache.dateEcheance);
+
+    printf("Priorite : ");
+    scanf("%d", &nouvelleTache.priorite);
+
+    taches[nbTaches++] = nouvelleTache;
+
+    printf("Tache ajoutee avec succes.\n");
+}
 void afficherListeTaches() {}
 
 void modifierTache() {}
