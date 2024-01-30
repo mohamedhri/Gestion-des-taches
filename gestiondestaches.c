@@ -230,15 +230,19 @@ int main() {
     int choix;
 
     while (1) {
-        printf("\n\t Gestionnaire des taches\n ------------------------\n");
-        printf("1. Ajouter une tache\n ------------------------\n");
-        printf("2. Afficher la liste des taches\n ------------------------\n");
-        printf("3. Modifier une tache\n ------------------------\n");
-        printf("4. Supprimer une tache\n ------------------------\n");
-        printf("5. Trier les taches\n ------------------------\n");
-        printf("6. Filtrer les taches par priorite\n ------------------------\n");
-        printf("7. Filtrer les taches par date d'echeance proche\n ------------------------\n");
-        printf("8. Quitter\n ------------------------\n");
+        
+         printf(" \t \t Gestionnaire des taches\n");
+    printf("    *===================================================*\n");
+    printf("    # 1. Ajouter une tache                              #\n");
+    printf("    # 2. Afficher la liste des taches                   #\n");
+    printf("    # 3. Modifier une tache                             #\n");
+    printf("    # 4. Supprimer une tache                            #\n");
+    printf("    # 5. Trier les taches                               #\n");
+    printf("    # 6. Filtrer les taches par priorite                #\n");
+    printf("    # 7. Filtrer les taches par date d'echeance proche  #\n");
+    printf("    # 8. Quitter                                        #\n");
+    printf("    *===================================================*\n");
+
 
         printf("Votre choix : ");
 
