@@ -26,6 +26,17 @@ void ajouterTache() {
     printf("Date d'echeance (yyyy-mm-dd) : "); 
     scanf(" %[^\n]", nouvelleTache.dateEcheance);
 
+    int anneeActuelle = 2024;
+
+    int anneeTache;
+    scanf(nouvelleTache.dateEcheance, "%d", &anneeTache);
+
+
+    if (anneeTache > anneeActuelle) {
+        printf("La date d'echeance doit etre ulterieure a la date actuelle.\n");
+        return;
+    }
+
     printf("Priorite (1---5) : ");
     scanf("%d", &nouvelleTache.priorite);
 
@@ -33,7 +44,7 @@ void ajouterTache() {
         printf("Priorite invalide. Veuillez choisir une priorite entre 1 et 5.\n");
         return;
     }
-
+   
     taches[nbTaches++] = nouvelleTache;
 
     printf("Tache ajoutee avec succes.\n");
@@ -139,13 +150,14 @@ void trierTaches() {
             for (int i = 0; i < nbTaches - 1; i++) {
                 for (int j = 0; j < nbTaches - i - 1; j++) {
                     if (taches[j].priorite > taches[j + 1].priorite) {
+
                         struct Tache temp = taches[j];
                         taches[j] = taches[j + 1];
                         taches[j + 1] = temp;
                     }
                 }
             }
-            printf("Taches triees par priorite en ordre croissant.\n");
+            printf("Taches triees par priorite en ordre croissant\n");
             break;
         case 2:
 
@@ -158,7 +170,7 @@ void trierTaches() {
                     }
                 }
             }
-            printf("Taches triees par priorite en ordre decroissant.\n");
+            printf("Taches triees par priorite en ordre decroissant\n");
             break;
         case 3:
 
@@ -171,7 +183,7 @@ void trierTaches() {
                     }
                 }
             }
-            printf("Taches triees par date d'echeance en ordre croissant.\n");
+            printf("Taches triees par date d'echeance en ordre croissant\n");
             break;
         case 4:
 
@@ -184,7 +196,7 @@ void trierTaches() {
                     }
                 }
             }
-            printf("Taches triees par date d'echeance en ordre decroissant.\n");
+            printf("Taches triees par date d'echeance en ordre decroissant\n");
             break;
         default:
             printf("Choix invalide.\n");
@@ -215,7 +227,7 @@ void filtrerTachesParPriorite() {
 
 void filtrerTachesParDateProche() {
     char dateFiltre[20];
-    printf("Filtrer les taches dont la date d'echeance est proche (format : YYYY-MM-DD) : ");
+    printf("Filtrer les taches dont la date d'echeance est proche (format: YYYY-MM-DD) : ");
     scanf(" %[^\n]", dateFiltre);
 
     printf("Taches avec date d'echeance proche de %s :\n", dateFiltre);
@@ -251,7 +263,7 @@ int main() {
 
         if (scanf("%d", &choix) != 1) {
             scanf("%*s");
-            printf(" \n Entree non valide!  Veuillez entrer un nombre.\n");
+            printf(" \n Entree non valide!  Veuillez entrer un nombre.\n\t\t--------------------\n\n");
             continue;
         }
 
