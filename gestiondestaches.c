@@ -6,7 +6,7 @@
 
 struct Tache {
     char description[100];
-    char dateEcheance[20];
+    char dateEcheance[11];
     int priorite;
 };
 
@@ -20,14 +20,13 @@ void ajouterTache() {
     }
 
     struct Tache nouvelleTache;
-
     printf("Description de la tache : ");
     scanf(" %[^\n]", nouvelleTache.description);
 
-    printf("Date d'echeance : ");
+    printf("Date d'echeance (yyyy-mm-dd) : "); 
     scanf(" %[^\n]", nouvelleTache.dateEcheance);
 
-    printf("Priorite (1-5) : ");
+    printf("Priorite (1---5) : ");
     scanf("%d", &nouvelleTache.priorite);
 
     if (nouvelleTache.priorite < 1 || nouvelleTache.priorite > 5) {
@@ -58,6 +57,7 @@ void afficherListeTaches() {
 }
 
 void modifierTache() {
+
     if (nbTaches == 0) {
         printf("La liste des taches est vide.\n");
         return;
@@ -72,21 +72,24 @@ void modifierTache() {
         return;
     }
 
-    struct Tache *tache = &taches[indexTache - 1];
+    struct Tache tache = taches[indexTache - 1];
 
     printf("Nouvelle description : ");
-    scanf(" %[^\n]", tache->description);
+    scanf(" %[^\n]", tache.description);
 
-    printf("Nouvelle date d'echeance : ");
-    scanf(" %[^\n]", tache->dateEcheance);
+    printf("Nouvelle date d'echeance (yyyy-mm-dd) : ");
+    scanf(" %[^\n]", tache.dateEcheance);
 
     printf("Nouvelle priorite (1-5) : ");
-    scanf("%d", &tache->priorite);
+    scanf("%d", &tache.priorite);
 
-    if (tache->priorite < 1 || tache->priorite > 5) {
+    if (tache.priorite < 1 || tache.priorite > 5) {
         printf("Priorite invalide. Veuillez choisir une priorite entre 1 et 5.\n");
         return;
     }
+
+    taches[indexTache - 1] = tache;
+
 
     printf("Tache modifiee avec succes.\n");
 }
@@ -132,7 +135,7 @@ void trierTaches() {
 
     switch (choix) {
         case 1:
-            // Tri croissant par priorite
+
             for (int i = 0; i < nbTaches - 1; i++) {
                 for (int j = 0; j < nbTaches - i - 1; j++) {
                     if (taches[j].priorite > taches[j + 1].priorite) {
@@ -145,7 +148,7 @@ void trierTaches() {
             printf("Taches triees par priorite en ordre croissant.\n");
             break;
         case 2:
-            // Tri decroissant par priorite
+
             for (int i = 0; i < nbTaches - 1; i++) {
                 for (int j = 0; j < nbTaches - i - 1; j++) {
                     if (taches[j].priorite < taches[j + 1].priorite) {
@@ -158,7 +161,7 @@ void trierTaches() {
             printf("Taches triees par priorite en ordre decroissant.\n");
             break;
         case 3:
-            // Tri par date d'echeance croissante
+
             for (int i = 0; i < nbTaches - 1; i++) {
                 for (int j = 0; j < nbTaches - i - 1; j++) {
                     if (strcmp(taches[j].dateEcheance, taches[j + 1].dateEcheance) > 0) {
@@ -171,7 +174,7 @@ void trierTaches() {
             printf("Taches triees par date d'echeance en ordre croissant.\n");
             break;
         case 4:
-            // Tri par date d'echeance decroissante
+
             for (int i = 0; i < nbTaches - 1; i++) {
                 for (int j = 0; j < nbTaches - i - 1; j++) {
                     if (strcmp(taches[j].dateEcheance, taches[j + 1].dateEcheance) < 0) {
